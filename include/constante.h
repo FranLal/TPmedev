@@ -3,5 +3,5 @@
 #define MER 1
 #define BATEAU 2
 #define BATEAU_TOUCHE 3
-// [[Case de la grille adverse]
-#define INCONNU 2
+// [Nombre de bateaux dans la partie]
+#define NB_BATEAUX 5

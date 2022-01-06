@@ -1,4 +1,5 @@
 #include "joueur.h"
+#include "constante.h"
 
 Joueur::Joueur() {
     nom = "";
@@ -8,7 +9,7 @@ Joueur::Joueur() {
 }
 Joueur::Joueur(string _nom, Grille* _grille_bateaux, Grille* _grille_tir) {
     nom = _nom;
-    pv = 5;
+    pv = NB_BATEAUX;
     grille_bateaux = _grille_bateaux;
     grille_tir = _grille_tir;
 }

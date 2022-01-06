@@ -17,22 +17,12 @@ public:
 	int getX()		{ return this->x; }
 	int getY() { return this->y; }
 	int getContenu() { return this->contenu; }
-	bool getDecouverte() { return this - decouverte; }
+	bool getDecouverte() { return this->decouverte; }
+    
 	//ecriture
 	void setContenu(int nouveau_contenu);
 
     Case(int x, int y, int contenu);
 };
-
-#endif
-
-
-
-
-
-
-
-
-
 
 #endif

@@ -34,3 +34,6 @@
 #ignore build
 
 build/
+
+#vscode
+.vscode/

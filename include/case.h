@@ -18,11 +18,11 @@ public:
 	int getY() { return this->y; }
 	int getContenu() { return this->contenu; }
 	bool getDecouverte() { return this->decouverte; }
-    
+    Bateau* getBateau() {return this->bat;}
 	//ecriture
 	void setContenu(int nouveau_contenu);
     void setBateau(Bateau* bat);
-
+	void setDecouverte(bool isDecouvert) {decouverte=isDecouvert;}
     Case(int x, int y, int contenu);
 };
 

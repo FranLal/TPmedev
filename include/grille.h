@@ -13,7 +13,7 @@ public:
 	//methode
 	void display_grid();
 	void add_boat(Bateau* bat);
-
+	Case* getCase(int x,int y) {return grille[x][y];}
     Grille();
 };
 

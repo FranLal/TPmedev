@@ -6,7 +6,7 @@
 using namespace std;
 
 class Joueur {
-private:
+protected:
     string nom;
     int pv;
     Grille* grille_bateaux;

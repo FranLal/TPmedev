@@ -9,3 +9,7 @@ Case::Case(int x,int y, int contenu) {
 void Case::setContenu(int nouveau_contenu) {
 	this->contenu = nouveau_contenu;
 }
+
+void Case::setBateau(Bateau* bat) {
+	this->bat = bat;
+}

@@ -21,6 +21,7 @@ public:
     
 	//ecriture
 	void setContenu(int nouveau_contenu);
+    void setBateau(Bateau* bat);
 
     Case(int x, int y, int contenu);
 };

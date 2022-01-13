@@ -10,11 +10,11 @@ void Utilisateur::attack(){
         int x=-1,y=-1;
         do {
             cin>>x;
-        } while (x<1 || x>10);
+        } while (x<1 || x>TAILLE_GRILLE);
         cout<<" Rentrer l'ordonnée y de la case à attaquer"<< endl;
         do {
             cin>>y;
-        } while (y<1 || y>10);
+        } while (y<1 || y>TAILLE_GRILLE);
         case_attaquee=grille_tir->getCase(y,x);
         if (case_attaquee->getDecouverte()) cout<<"Case déjà attaquée"<<endl;
     } while (case_attaquee->getDecouverte());

@@ -5,8 +5,8 @@
 
 
 Grille::Grille(){
-    for(int i=0;i<10;i++){
-        for(int j=0;j<10;j++){
+    for(int i=0;i<TAILLE_GRILLE;i++){
+        for(int j=0;j<TAILLE_GRILLE;j++){
             //ajout d'une case "mer" à chaque case
             this->grille[i][j] = new Case(i,j,MER);
         }

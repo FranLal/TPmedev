@@ -1,6 +1,7 @@
 #ifndef GRILLE_H
 #define GRILLE_H
 
+#include "constante.h"
 #include "bateau.h"
 #include "case.h"
 #include "iostream"
@@ -8,7 +9,7 @@
 
 class Grille {
 private:
-	Case* grille[10][10];
+	Case* grille[TAILLE_GRILLE][TAILLE_GRILLE];
 public:
 	//methode
 	void display_grid();

@@ -5,3 +5,4 @@
 #define BATEAU_TOUCHE 3
 // [Nombre de bateaux dans la partie]
 #define NB_BATEAUX 5
+#define TAILLE_GRILLE 10

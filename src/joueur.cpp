@@ -13,3 +13,9 @@ Joueur::Joueur(string _nom, Grille* _grille_bateaux, Grille* _grille_tir) {
     grille_bateaux = _grille_bateaux;
     grille_tir = _grille_tir;
 }
+
+void Joueur::setBateaux(Bateau** _liste_bateaux) {
+    for (int i = 0; i < NB_BATEAUX; i++) {
+        liste_bateaux[i] = _liste_bateaux[i];
+    }
+}

@@ -15,7 +15,7 @@ void Utilisateur::attack(){
         do {
             cin>>y;
         } while (y<1 || y>TAILLE_GRILLE);
-        case_attaquee=grille_tir->getCase(y,x);
+        case_attaquee=grille_tir->getCase(y-1,x-1);
         if (case_attaquee->getDecouverte()) cout<<"Case déjà attaquée"<<endl;
     } while (case_attaquee->getDecouverte());
 

@@ -25,5 +25,7 @@ public:
     void setGrilleBateaux(Grille* _grille_bateaux) { grille_bateaux = _grille_bateaux;}
     Grille* getGrilleTir() { return grille_tir;}
     void setGrilleTir(Grille* _grille_tir) { grille_tir = _grille_tir;}
+
+    void display_board();
     
 };

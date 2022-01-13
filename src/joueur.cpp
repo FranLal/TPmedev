@@ -4,8 +4,8 @@
 Joueur::Joueur() {
     nom = "";
     pv = 0;
-    grille_bateaux = NULL;
-    grille_tir = NULL;
+    grille_bateaux = nullptr;
+    grille_tir = nullptr;
 }
 Joueur::Joueur(string _nom, Grille* _grille_bateaux, Grille* _grille_tir) {
     nom = _nom;

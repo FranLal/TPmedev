@@ -20,3 +20,10 @@ void Joueur::setBateaux(Bateau* _liste_bateaux) {
         liste_bateaux[i] = _liste_bateaux[i];
     }
 }
+
+
+void Joueur::display_board(){
+    //display_grid(w/h, position_x, scale)
+    this->grille_bateaux->display_grid(2.,-0.5,0.9);
+    this->grille_tir->display_grid(2.,0.5,0.9);
+}

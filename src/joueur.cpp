@@ -4,9 +4,10 @@
 Joueur::Joueur() {
     nom = "";
     pv = 0;
-    grille_bateaux = NULL;
+    grille_bateaux = new Grille;
     grille_tir = NULL;
 }
+
 Joueur::Joueur(string _nom, Grille* _grille_bateaux, Grille* _grille_tir) {
     nom = _nom;
     pv = NB_BATEAUX;
@@ -14,7 +15,7 @@ Joueur::Joueur(string _nom, Grille* _grille_bateaux, Grille* _grille_tir) {
     grille_tir = _grille_tir;
 }
 
-void Joueur::setBateaux(Bateau** _liste_bateaux) {
+void Joueur::setBateaux(Bateau* _liste_bateaux) {
     for (int i = 0; i < NB_BATEAUX; i++) {
         liste_bateaux[i] = _liste_bateaux[i];
     }

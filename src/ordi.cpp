@@ -24,3 +24,60 @@ void Ordi::attack(){
         case_attaquee->setContenu(BATEAU_TOUCHE);
     }
 }
+
+void Ordi::genererBateaux() {
+    // Si l'algo marche :
+    srand(time(NULL));
+
+    bool cases_occupees[TAILLE_GRILLE][TAILLE_GRILLE];
+    for (int i = 0; i < TAILLE_GRILLE; i++) {
+        for (int j = 0; j < TAILLE_GRILLE; j++) {
+            cases_occupees[i][j] = false;
+        }
+    }
+    
+    int x, y;
+    bool horizontal, occupe;
+    for (int i = 0; i < NB_BATEAUX; i++) {
+        occupe = false;
+        while (!occupe) {
+            x = rand()%10;
+            y = rand()%10;
+            horizontal = rand()%2;
+            if (x + horizontal*TAILLES_DES_BATEAUX[i] >= TAILLE_GRILLE || y + (1-horizontal)*TAILLES_DES_BATEAUX[i] >= TAILLE_GRILLE) {
+                occupe = true;
+            }
+            if (!occupe) {
+                for (int j = 0; j < TAILLES_DES_BATEAUX[i]; j++) {
+                    if (cases_occupees[y+j*(1-horizontal)][x+j*horizontal]) {
+                        occupe = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        for (int j = 0; j < TAILLES_DES_BATEAUX[i]; j++) {
+            cases_occupees[y+j*(1-horizontal)][x+j*horizontal] = true;
+        }
+
+        liste_bateaux[i] = Bateau(NOMS_DES_BATEAUX[i], x, y, TAILLES_DES_BATEAUX[i], horizontal);
+        grille_bateaux->add_boat(&liste_bateaux[i]);
+    }
+    
+
+
+
+
+
+
+    // Si l'algo ne marche pas :
+    /*
+    liste_bateaux[0] = Bateau (NOMS_DES_BATEAUX[0],5,0,0,true);
+    liste_bateaux[1] = Bateau (NOMS_DES_BATEAUX[1],4,1,1,true);
+    liste_bateaux[2] = Bateau (NOMS_DES_BATEAUX[2],3,2,2,true);
+    liste_bateaux[3] = Bateau (NOMS_DES_BATEAUX[3],3,3,3,true);
+    liste_bateaux[4] = Bateau (NOMS_DES_BATEAUX[4],2,4,4,true);
+    for(int i=0;i<NB_BATEAUX;i++) grille_bateaux->add_boat(&liste_bateaux[i]);
+    */
+}

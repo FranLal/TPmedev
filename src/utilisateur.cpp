@@ -1,6 +1,10 @@
 #include "constante.h"
 #include "utilisateur.h"
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <map>
 
 void Utilisateur::attack(){
     Case* case_attaquee;
@@ -28,6 +32,34 @@ void Utilisateur::attack(){
         bateau->setVie(bateau->getVie()-1);
         case_attaquee->setContenu(BATEAU_TOUCHE);
     }
+}
+
+void Utilisateur::genererBateaux() {
 
 
+   ifstream fichier("C:/eleve/Documents/MEDEV/TPmedev/Init.txt");
+
+   if(fichier)
+   {
+      //L'ouverture s'est bien passée, on peut donc lire
+
+      string ligne; //Une variable pour stocker les lignes lues
+      
+      int i = 0;
+      while(getline(fichier, ligne)) //Tant qu'on n'est pas à la fin, on lit
+      {
+         string mot1, mot2;
+         string mot;
+         stringstream str_ligne(ligne);
+         getline(str_ligne, mot1, ' ');
+         getline(str_ligne, mot2, ' ');
+         liste_bateaux[i] = Bateau(NOMS_DES_BATEAUX[i], TAILLES_DES_BATEAUX[i], mot1[1], mot1[0], mot2[0] == mot1[0]);
+         grille_bateaux->add_boat(&liste_bateaux[i]);
+      }
+      fichier.close();  //On referme le fichier
+    }
+    else
+    {
+       cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
+    }
 }

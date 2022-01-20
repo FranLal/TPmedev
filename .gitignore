@@ -34,6 +34,8 @@
 #ignore build
 
 build/
+build_gtest/
+googletest/
 
 #vscode
 .vscode/

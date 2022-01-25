@@ -20,8 +20,6 @@ void Grille::display_grid(float r_x,float t_x,float scale){
     glTranslatef(t_x,0.,0.);
     glScalef(r_x*scale,scale,1);
 
-    glClearColor(0.0f,0.0f,0.0f,0.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
 
     //notre grille
     glColor3f(0.0f,1.0f,0.0f);

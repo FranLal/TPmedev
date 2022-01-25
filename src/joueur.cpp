@@ -1,5 +1,7 @@
 #include "joueur.h"
 #include "constante.h"
+#include <GL/glut.h>
+#include <GL/glu.h>
 
 Joueur::Joueur() {
     nom = "";
@@ -24,6 +26,13 @@ void Joueur::setBateaux(Bateau* _liste_bateaux) {
 
 void Joueur::display_board(){
     //display_grid(w/h, position_x, scale)
-    this->grille_bateaux->display_grid(2.,-0.5,0.9);
-    this->grille_tir->display_grid(2.,0.5,0.9);
+
+    glClearColor(0.0f,0.0f,0.0f,0.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+
+    std::cout<<"grille bateaux"<<std::endl;
+    this->grille_bateaux->display_grid(0.5,-0.5,0.9);
+    std::cout<<"grille tir"<<std::endl;
+    this->grille_tir->display_grid(0.5,0.5,0.7);
 }

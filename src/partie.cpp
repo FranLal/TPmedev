@@ -19,3 +19,8 @@ void Partie::Initialisation(){
    ordinateur->setGrilleTir(humain->getGrilleBateaux());
    humain->setGrilleTir(ordinateur->getGrilleBateaux());
 }
+
+void Partie::display_humain(){
+   humain->display_board();
+}
+

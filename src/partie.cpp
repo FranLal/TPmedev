@@ -24,3 +24,8 @@ void Partie::display_humain(){
    humain->display_board();
 }
 
+void Partie::turn(){
+   humain->attack();
+   ordinateur->attack();
+   std::cout<<"fin  du tour"<<std::endl;
+}

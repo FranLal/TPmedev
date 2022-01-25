@@ -13,4 +13,6 @@ public:
     bool isEnd() {return end;}
     void setEnd(bool _end);
     void Initialisation();
+    void display_humain();
+    void turn();
 };

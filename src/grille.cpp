@@ -80,6 +80,8 @@ void Grille::display_grid(float r_x,float t_x,float scale){
             glVertex2d(1,y_coord);
         glEnd();
     }
+    glScalef(1/(r_x*scale),1/scale,1);
+    glTranslatef(-t_x,0.,0.);
 
     glFlush();
 }

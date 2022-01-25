@@ -16,9 +16,9 @@ public:
     Joueur();
     Joueur(string _nom, Grille* _grille_bateaux, Grille* _grille_tir);
 
-    virtual void attack();
+    virtual void attack() {};
 
-    virtual void genererBateaux();
+    virtual void genererBateaux() {};
 
     string getNom() { return nom;}
     void setNom(string _nom) { nom = _nom;}

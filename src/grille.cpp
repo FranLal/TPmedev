@@ -85,5 +85,8 @@ void Grille::display_grid(float r_x,float t_x,float scale){
 }
 
 void Grille::add_boat(Bateau* bat) {
-	this->grille[bat->getX()][bat->getY()]->setBateau(bat);
+    for(int i=0;i<bat->getLength();i++){
+        this->grille[bat->getX()+i*(bat->isHorizontal())][bat->getY()+i*(1-bat->isHorizontal())]->setBateau(bat);
+        this->grille[bat->getX()+i*(bat->isHorizontal())][bat->getY()+i*(1-bat->isHorizontal())]->setContenu(BATEAU);
+    }
 }

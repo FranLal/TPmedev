@@ -1,6 +1,7 @@
 #include "ordi.h"
 #include <stdlib.h>
 #include <time.h>
+#include "constante.h"
 using namespace std;
 
 void Ordi::attack(){
@@ -40,32 +41,28 @@ void Ordi::genererBateaux() {
     }
     
     int x, y;
-    bool horizontal, occupe;
+    bool horizontal, possible;
     for (int i = 0; i < NB_BATEAUX; i++) {
-        occupe = false;
-        while (!occupe) {
-            x = rand()%10;
-            y = rand()%10;
+        //std::cout<<"batrau ordi"<<TAILLES_DES_BATEAUX[i]<<std::endl;
+        
+        possible = false;
+        while (!possible) {
+            possible = true;
             horizontal = rand()%2;
-            if (x + horizontal*TAILLES_DES_BATEAUX[i] >= TAILLE_GRILLE || y + (1-horizontal)*TAILLES_DES_BATEAUX[i] >= TAILLE_GRILLE) {
-                occupe = true;
-            }
-            if (!occupe) {
-                for (int j = 0; j < TAILLES_DES_BATEAUX[i]; j++) {
-                    if (cases_occupees[y+j*(1-horizontal)][x+j*horizontal]) {
-                        occupe = true;
-                        break;
-                    }
-                }
-            }
+            x = rand()%(TAILLE_GRILLE-horizontal*TAILLES_DES_BATEAUX[i] );
+            y = rand()%(TAILLE_GRILLE-(1-horizontal)*TAILLES_DES_BATEAUX[i] );
+            
+            for (int j = 0; j < TAILLES_DES_BATEAUX[i]; j++)
+                if (cases_occupees[y+j*(1-horizontal)][x+j*horizontal])
+                    possible = false;
         }
+
 
         for (int j = 0; j < TAILLES_DES_BATEAUX[i]; j++) {
             cases_occupees[y+j*(1-horizontal)][x+j*horizontal] = true;
         }
-
-        liste_bateaux[i] = Bateau(NOMS_DES_BATEAUX[i], x, y, TAILLES_DES_BATEAUX[i], horizontal);
-        grille_bateaux->add_boat(&liste_bateaux[i]);
+        liste_bateaux[i] = Bateau(NOMS_DES_BATEAUX[i], TAILLES_DES_BATEAUX[i], x, y, horizontal);
+        grille_bateaux->add_boat(&(liste_bateaux[i]));
     }
     
 

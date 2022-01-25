@@ -51,6 +51,9 @@ void Grille::display_grid(float r_x,float t_x,float scale){
                 case BATEAU_TOUCHE :
                     glColor3f(0.57f,0.0f,0.0f);
                     break;
+                case DANS_LEAU :
+                    glColor3f(0.27f,0.68f,0.99f);
+                    break;
                 }
                 glTranslatef(-0.9+j*0.2,0.9-i*0.2,0);
                 glScalef(0.09,0.09,1.0);

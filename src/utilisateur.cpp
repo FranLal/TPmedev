@@ -24,7 +24,10 @@ void Utilisateur::attack(){
     } while (case_attaquee->getDecouverte());
 
     case_attaquee->setDecouverte(true);
-    if(case_attaquee->getContenu()==MER) cout<<"Plouf!"<<endl;
+    if(case_attaquee->getContenu()==MER){
+        cout<<"Plouf!"<<endl;
+        case_attaquee->setContenu(DANS_LEAU);
+    }
     
     if(case_attaquee->getContenu()==BATEAU){
         Bateau* bateau=case_attaquee->getBateau();

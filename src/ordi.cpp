@@ -15,7 +15,10 @@ void Ordi::attack(){
     } while ((x < 0 || x > TAILLE_GRILLE || y < 0 || y > TAILLE_GRILLE) && case_attaquee->getDecouverte());
 
     case_attaquee->setDecouverte(true);
-    if(case_attaquee->getContenu()==MER) cout<<"Plouf!"<<endl;
+    if(case_attaquee->getContenu()==MER){ 
+        cout<<"Plouf!"<<endl;
+        case_attaquee->setContenu(DANS_LEAU);
+    }
     
     if(case_attaquee->getContenu()==BATEAU){
         Bateau* bateau=case_attaquee->getBateau();

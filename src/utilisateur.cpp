@@ -40,26 +40,25 @@ void Utilisateur::attack(){
 void Utilisateur::genererBateaux() {
 
 
-   ifstream fichier("C:/eleve/Documents/MEDEV/TPmedev/Init.txt");
+    std::ifstream fichier;
+    //Il faut adapter l'adresse
+    fichier.open("/home/eleve/Documents/BatailleNavale/TPmedev/init.txt");
+   
+    if(fichier.is_open())
+    {
+        std::cout<<"fihcier lu "<<std::endl;
+        //L'ouverture s'est bien passée, on peut donc lire
 
-   if(fichier)
-   {
-      //L'ouverture s'est bien passée, on peut donc lire
-
-      string ligne; //Une variable pour stocker les lignes lues
+        std::string line; //Une variable pour stocker les lignes lues
       
-      int i = 0;
-      while(getline(fichier, ligne)) //Tant qu'on n'est pas à la fin, on lit
-      {
-         string mot1, mot2;
-         string mot;
-         stringstream str_ligne(ligne);
-         getline(str_ligne, mot1, ' ');
-         getline(str_ligne, mot2, ' ');
-         liste_bateaux[i] = Bateau(NOMS_DES_BATEAUX[i], TAILLES_DES_BATEAUX[i], mot1[1], mot1[0], mot2[0] == mot1[0]);
-         grille_bateaux->add_boat(&liste_bateaux[i]);
-      }
-      fichier.close();  //On referme le fichier
+        int i = 0;
+        while(std::getline(fichier, line)) //Tant qu'on n'est pas à la fin, on lit
+        {
+            liste_bateaux[i] = Bateau(NOMS_DES_BATEAUX[i], TAILLES_DES_BATEAUX[i], std::stoi(line.substr(0,1)),std::stoi(line.substr(2,1)),std::stoi(line.substr(4,1)));
+            grille_bateaux->add_boat(&liste_bateaux[i]);
+            i++;
+        }
+        fichier.close();  //On referme le fichier
     }
     else
     {

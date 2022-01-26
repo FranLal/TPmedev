@@ -30,3 +30,5 @@ target_link_libraries(run_tests ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} ${CMAKE_SOUR
 if(UNIX)
    target_link_libraries(run_tests pthread)
 endif(UNIX)
+
+SET(CMAKE_CXX_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage")
